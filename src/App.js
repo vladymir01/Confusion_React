@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import React, { Component } from 'react';
 import {Navbar,NavbarBrand} from 'reactstrap';
 import Menu from './components/MenuComponent';
@@ -19,8 +19,8 @@ class App extends Component {
             <div className="container">
               <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
             </div>
-          </Navbar>
-          <Menu dishes={this.state.dishes}/>
+        </Navbar>
+        <Menu dishes={this.state.dishes}/>
       </div>
     );
 
