@@ -1,18 +1,18 @@
-//import logo from './logo.svg';
 import React, { Component } from 'react';
 import './App.css';
-//import {Navbar,NavbarBrand} from 'reactstrap';
-//import Menu from './components/MenuComponent';
-//import { DISHES } from './shared/dishes';
 import Main from './components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   
   render(){
     return (
-      <div >
-        <Main/>
-      </div>
+      <BrowserRouter>
+          <div >
+              <Main/>
+          </div>
+      </BrowserRouter>
+      
     );
 
   }
