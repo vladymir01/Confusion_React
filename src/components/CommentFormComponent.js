@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle, Breadcrumb, 
-    BreadcrumbItem,Button, Modal, ModalHeader, ModalBody, FormGroup, Label,Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label,Input} from 'reactstrap';
 import { LocalForm, Control, Errors } from 'react-redux-form';
-//import CommentForm from './CommentFormComponent';
-
-
-/* The Comment Form Component */
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -97,75 +91,4 @@ class CommentForm extends Component {
     }
 }
 
-/* End of the CommentForm Component*/
-
-function RenderDish(dish){
-    return(
-   
-        <Card>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-            <CardBody>
-                <CardTitle>{dish.name}</CardTitle>
-                <CardText>{dish.description}</CardText>
-            </CardBody>
-        </Card>
-    );
-}
-
-function RenderComments(comments){
-    
-   const comm = comments.map ((comment)=>{           
-                            return (<div key={comment.id}>
-                                        <div>{comment.comment}</div>
-                                            
-                                        <div>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'})
-                                                                        .format(new Date(Date.parse(comment.date)))
-                                                                    }
-                                        </div>
-                                        
-                                </div>)});
-    return (<div>
-                {comm}
-                <CommentForm/>
-            </div>);
-}
-
-
-const DishDetail=(props)=>{
-
-  
-
-    return (
-    <div className="container">
-                    
-    
-                <div className="row">
-                    <Breadcrumb>
-
-                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
-                        <h3>{props.dish.name}</h3>
-                        <hr />
-                    </div>                
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        {/*<RenderDish dish={props.dish} />*/}
-                        {RenderDish(props.dish)}
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                {/*<RenderComments comments={props.comments} />*/}
-                {RenderComments(props.comments)}
-                
-                    </div>
-                </div>
-    </div>
-
-    );
-
-}
-
-export default DishDetail;
-
+export default CommentForm;
