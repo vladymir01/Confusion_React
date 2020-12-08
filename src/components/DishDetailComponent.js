@@ -3,6 +3,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle, Breadcrumb
     BreadcrumbItem,Button, Modal, ModalHeader, ModalBody, FormGroup, Label,Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LocalForm, Control, Errors } from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 //import CommentForm from './CommentFormComponent';
 
 
@@ -134,7 +135,28 @@ function RenderComments({comments, addComment, dishId}){
 
 
 const DishDetail=(props)=>{
+/* 12-08-2020  */
+        if (props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
+        else if (props.dish != null) 
 
+/* End */
   
 
     return (
