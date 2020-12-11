@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label,Input} from 'reactstrap';
-import { LocalForm, Control, Errors } from 'react-redux-form';
+import { LocalForm, Control, Errors  } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -28,6 +28,7 @@ class CommentForm extends Component {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
         
+        
     }
 
     render(){
@@ -37,7 +38,7 @@ class CommentForm extends Component {
                         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                         <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                         <ModalBody>
-                            <LocalForm onSubmit={(values)=>this.handleSubmit(values)}>
+                            <LocalForm model="feedback" onSubmit={(values)=>this.handleSubmit(values)}>
                             <FormGroup>
                                         <Label htmlFor="rating">Rating</Label>
                                         <Control.select model=".rating" name="rating"
