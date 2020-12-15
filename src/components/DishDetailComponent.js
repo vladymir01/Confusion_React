@@ -35,7 +35,7 @@ class CommentForm extends Component {
       handleSubmit(values) {
         //console.log('Current State is: ' + JSON.stringify(values));
         //alert('Current State is: ' + JSON.stringify(values));
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
         
     }
 
@@ -115,7 +115,7 @@ function RenderDish(dish){
     );
 }
 
-function RenderComments({comments, addComment, dishId}){
+function RenderComments({comments, postComment, dishId}){
     
    const comm = comments.map ((comment)=>{           
                             return (<div key={comment.id}>
@@ -130,7 +130,7 @@ function RenderComments({comments, addComment, dishId}){
     return (<div>
                 {comm}
                 {/*<CommentForm/>*/}
-                <CommentForm dishId={dishId} addComment={addComment} />
+                <CommentForm dishId={dishId} postComment={postComment} />
             </div>);
 }
 
@@ -184,7 +184,7 @@ const DishDetail=(props)=>{
                 {/*<RenderComments comments={props.comments} />*/}
                 {/*RenderComments(props.comments)*/}
                 <RenderComments comments={props.comments}
-                    addComment={props.addComment}
+                    postComment={props.postComment}
                     dishId={props.dish.id}
                />
                 
